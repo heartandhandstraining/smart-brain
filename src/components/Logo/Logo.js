@@ -8,7 +8,7 @@ class Logo extends Component {
 		return (
 			<div className='ma4 mt10'>
 				<Tilt className="Tilt br4 shadow-2" options={{ max : 55 }} style={{ height: 150, width: 150 }} >
-				 <div className="Tilt-inner" pa3>
+				 <div className="Tilt-inner pa3" >
 				 	<img alt='logo' src={brain}
 				 		style={{paddingTop: '2px'}}/>
 				 	</div>
