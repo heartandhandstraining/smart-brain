@@ -42,14 +42,14 @@ class App extends Component {
 	}
 
 	loadUser = (user) => {
-		this.setState(user: {
+		this.setState({user: {
 			id: user.id,
 			name: user.name,
 			email: user.email,
 			password: user.password,
 			entries: user.entries,
 			joined: user.joined,
-		})
+		}})
 	}
 
 	calculateFaceLocation = (data) => {
@@ -78,7 +78,22 @@ class App extends Component {
 		app.models.predict(
 			Clarifai.FACE_DETECT_MODEL,
 			this.state.input)
-		.then( response => this.displayFaceBox(this.calculateFaceLocation(response)))
+		.then( response => {
+			if (response) {
+				fetch('http://localhost:3000/image', {
+					method: 'put',
+					headers: { 'Content-Type': 'application/json' },
+					body:
+						JSON.stringify({
+							id: this.state.user.id,
+						})
+				}).then(response => response.json())
+					.then(count => {
+						this.setState(Object.assign(this.state.user, {entries: count}));
+					})
+			}
+			this.displayFaceBox(this.calculateFaceLocation(response))
+		})
 	  .catch(console.log);
 	}
 
@@ -90,6 +105,7 @@ class App extends Component {
 
   render() {
   	const { isSignedIn, imageUrl, route, box } = this.state;
+  	const { name, entries } = this.state.user;
     return (
       <div className="App">
       	<Particles className="particles"
@@ -111,7 +127,7 @@ class App extends Component {
 	      { route === 'home' &&
 	      	<div>
 				    <Logo />
-				    <Rank />
+				    <Rank name={name} entries={entries} />
 				    <ImageLinkForm
 				    	onInputChange={this.onInputChange}
 				    	onButtonSubmit={this.onButtonSubmit}

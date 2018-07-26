@@ -6,7 +6,7 @@ class Rank extends Component {
 		return (
 			<div>
 				<div className='white f3'>
-					{`${name}, your current rank is...`}
+					{`${name}, your current entry count is...`}
 				</div>
 				<div className='white f1'>
 					{`${entries}`}
