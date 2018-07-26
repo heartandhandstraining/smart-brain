@@ -24,6 +24,14 @@ class App extends Component {
 			box: {},
 			route: 'signin',
 			isSignedIn: false,
+			user: {
+				id: '',
+				name: '',
+				email: '',
+				password: '',
+				entries: 0,
+				joined: '',
+			}
 		}
 	}
 
@@ -31,6 +39,17 @@ class App extends Component {
 		fetch('http://localhost:3000')
 			.then(response => response.json())
 			.then(console.log)
+	}
+
+	loadUser = (user) => {
+		this.setState(user: {
+			id: user.id,
+			name: user.name,
+			email: user.email,
+			password: user.password,
+			entries: user.entries,
+			joined: user.joined,
+		})
 	}
 
 	calculateFaceLocation = (data) => {
@@ -76,13 +95,18 @@ class App extends Component {
       	<Particles className="particles"
           params={particlesOptions}
         />
+
 	      <Navigation
 	      	isSignedIn={isSignedIn}
 	      	onRouteChange={this.onRouteChange}
 	      />
 
 	      { route === 'signin' &&
-	      	<Signin onRouteChange={this.onRouteChange} />}
+	      	<Signin
+	      		loadUser={this.loadUser}
+	      		onRouteChange={this.onRouteChange}
+	      	/>
+	      }
 
 	      { route === 'home' &&
 	      	<div>
@@ -97,7 +121,11 @@ class App extends Component {
 	      }
 
 				{ route === 'register' &&
-					<Register onRouteChange={this.onRouteChange} /> }
+					<Register
+						loadUser={this.loadUser}
+						onRouteChange={this.onRouteChange}
+					/>
+				}
       </div>
     );
   }
