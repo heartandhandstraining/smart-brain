@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Signin extends Component {
+class Register extends Component {
 
 	render() {
 		const { onRouteChange } = this.props;
@@ -9,7 +9,11 @@ class Signin extends Component {
 				<main className="pa4 black-80">
 				  <div className="measure">
 				    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-				      <legend className="f1 fw6 ph0 mh0">Sign In</legend>
+				      <legend className="f1 fw6 ph0 mh0">Register</legend>
+				      <div className="mt3">
+				        <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+				        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="name" name="name"  id="name" />
+				      </div>
 				      <div className="mt3">
 				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 				        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" />
@@ -22,14 +26,9 @@ class Signin extends Component {
 				    <div className="">
 				      <input
 				      	className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-				      	type="submit" value="Sign in"
+				      	type="submit" value="Register & Sign In"
 				      	onClick={() => onRouteChange('home')}
 				      />
-				    </div>
-				    <div className="lh-copy mt3">
-				      <p onClick= {() => onRouteChange('register')}
-				      	className="f5 link dim black db pointer"
-				      >Register</p>
 				    </div>
 				  </div>
 				</main>
@@ -38,5 +37,5 @@ class Signin extends Component {
 	}
 }
 
-export default Signin
+export default Register
 ;
