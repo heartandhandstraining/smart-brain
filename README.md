@@ -1,7 +1,7 @@
 # SmartBrain - Face Recognition App
-A web app that detects human faces in a image provided with the image url.
+The front-end part of smart-brain, a web app that detects human faces in a image provided with the image url.
 
-- Full-stack web development using HTML, CSS, JS, React, Node.js, Express, Knex, PostgreSQL, and a Clarifai API.
+- Front-end web development using HTML, CSS, JavaSript, React, Tachyons, Particles.js.
 
 <!-- 1. Clone this repo
 2. Run `npm install`
@@ -10,7 +10,7 @@ A web app that detects human faces in a image provided with the image url.
 
 You can grab Clarifai API key [here](https://www.clarifai.com/) -->
 
-- Deployed on Heroku. You can open it [here](https://smart-brain-jasmine.herokuapp.com/).
+- The full version of the app is deployed on Heroku. You can open it [here](https://smart-brain-jasmine.herokuapp.com/).
 
 - You can find the code for backend and server [here](https://github.com/jiaxuanc/smart-brain-api).
 
