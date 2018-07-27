@@ -77,7 +77,7 @@ constructor(props) {
 				    <div className="">
 				      <input
 				      	className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-				      	type="submit" value="Register & Sign In"
+				      	type="submit" value="Register"
 				      	onClick={this.onSubmitSignIn}
 				      />
 				    </div>
